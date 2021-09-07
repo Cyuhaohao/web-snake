@@ -151,6 +151,8 @@ class Game {
       // Move food to another place
       //This place must not be somewhere on the snake
       this.addFood();
+      const smd2 = document.getElementById("smd");
+      smd2.play()
     } else {
       this.snake.pop(); //Don't grow the snake
     }
@@ -160,6 +162,8 @@ class Game {
     // Game Over If snake bites itself
     for (var i = 1; i < this.snake.length; i++) {
       if (newHead[0] == this.snake[i][0] && newHead[1] == this.snake[i][1]) {
+        // const hng2 = document.getElementById("hng");
+        // hng2.play()
         this.gameover = true;
         return;
       }
@@ -193,7 +197,7 @@ class Game {
 
     // Draw the food
     var food = new Image();
-    food.src = "js/Phone.jpg";
+    food.src = "js/SadDick.jpeg";
     ctx.drawImage(
       food,
       this.food[0] * this.tileWidth,
@@ -201,8 +205,10 @@ class Game {
     );
     //GameOver
     if (this.gameover) {
+      const hng2 = document.getElementById("hng");
+      hng2.play()
       document.querySelector("#restart").classList.remove("hide");
-      var audio = new AudioPlay();
+      // var audio = new AudioPlay();
       audio.pause();
       ctx.font = "48px serif";
       ctx.fillStyle = "black";
